@@ -1,3 +1,5 @@
+var container = $('container');
+
 // Creating an array for the standard business hours in military time format
 var times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
@@ -15,19 +17,27 @@ for (i = 0; i < times.length; i++) {
 
     // Creates a div for the entire 
     var row = $('<div>');
-    timeBlock.addClass("row time-block");
+    row.addClass("row time-block");
+    console.log('test');
 
     // Creates a div for the hour of the day
-    var timeblock = $('<div>');
+    var timeBlock = $('<div>');
     timeBlock.addClass("col-1 hour");
+    timeBlock.text('test');
+    row.append(timeBlock);
 
     // Creates a text area to plan important events for that specific time block
     // The col-10 class makes it so the text area takes up 10 columns worth of space
     var planner = $('<textarea>');
     planner.addClass("col-10");
+    row.append(planner);
 
     // Creates a button to save your planner for that specific time block to local storage
     var save = $('<button>');
     save.addClass("col-1 saveBtn");
+    row.append(save);
+
+    // Appends the row div to the div with the container class
+    $('.container').append(row);
 
 }
